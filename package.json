@@ -1,0 +1,21 @@
+{
+  "name": "michnaj-PhotoProject",
+  "version": "1.0.0",
+  "description": "Photo Project - for Ambitious 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "michnaj-photoproject"
+  },
+  "keywords": [
+    "Photo"
+  ],
+  "author": "Jarosław Michna",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-sass": "^2.0.0"
+  }
+}

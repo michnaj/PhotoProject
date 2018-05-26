@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen')
+
+// COLOR variables
+$text-color: #373737
+$bg-color: #fff
+$secondary-color: #fff
+$secondary-bg: #f5f6f7
+$heading-color: #16a085
+$button-bg: #16a085
+$button-bg-light: #1abc9c
+$button-color: #fff
+
+// FONT variables
+$basic-font: 'Oxygen', sans-serif
+$base-font-size: 16px
+
+// HELP variables
+%headings
+  text-transform: uppercase
+  font-weight: 700
+  letter-spacing: 5px
+%content
+  width: 100%
+  max-width: 600px
+  padding: 30px
+  border-radius: 5px
+  p
+    margin-top: 30px
+    margin-bottom: 30px
+
+// MIXINS
+=translate($posX, $posY)
+  -ms-transform:      translate($posX, $posY)
+  -webkit-transform:  translate($posX, $posY)
+  transform:          translate($posX, $posY)
+=scale($x, $y)
+  -ms-transform:      scale($x, $y)
+  -webkit-transform:  scale($x, $y)
+  transform:          scale($x, $y)
+=transition($transition)
+  -webkit-transition: $transition
+  -moz-transition:    $transition
+  transition:         $transition
+
+// GLOBAL styles
+*
+  box-sizing: border-box
+body
+  margin: 0
+  font-family: $basic-font
+  color: $text-color
+  background: $bg-color
+  font-size: $base-font-size
+section
+  &>.container
+    padding-top: 100px
+    padding-bottom: 100px
+.container
+  width: 100%
+  max-width: 1170px
+  margin: 0 auto
+h1
+  @extend %headings
+  font-size: 36px
+h2
+  @extend %headings
+  font-size: 18px
+  &.jm-big
+    font-size: 24px
+h3
+  @extend %headings
+  font-size: 16px
+p
+  letter-spacing: 2px
+.jm-color
+  color: $heading-color
+.jm-btn
+  margin: 15px 0
+  padding: 10px 40px
+  text-transform: uppercase
+  font-weight: bold
+  border-radius: 3px
+  border: none
+  background-color: $button-bg
+  color: $button-color
+  +transition(.4s ease-in-out)
+  &:hover
+    background-color: $button-bg
+    color: $button-color
+    +scale(1.2, 1.2)
+
+// FLEX HELPERS
+@for $i from 1 through 5
+  .flex-#{$i}
+    flex: #{$i}
+
+/* HEADING */
+#header
+  height: 100vh
+  padding: 0
+  background: url(../images/heading-bg.jpg) center
+  background-size: cover
+  color: $secondary-color
+  .jm-jumbotron
+    display: flex
+    flex-direction: column
+    nav,
+    section
+      width: 100%
+  .jm-brand-override
+    display: none
+  .jm-navbar
+    background: none
+    border: none
+    margin: 0
+    height: 90px
+
+    .nav
+      width: 100%
+      li
+        width: 16%
+        margin: 0 2%
+        text-align: center
+        font-weight: 700
+        a
+          line-height: 55px
+          color: $secondary-color
+          text-transform: uppercase
+          &:hover
+            background-color: rgba(255, 255, 255, 0.2)
+        &.active
+          a
+            background: none
+            &:hover
+              background-color: rgba(255, 255, 255, 0.2)
+              color: $secondary-color
+        &.jm-brand
+          a:hover
+            background: transparent
+  .introduce
+    height: calc(100vh - 140px)
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+    p
+      font-weight: 500
+  .social-media
+    height: 50px
+    overflow: hidden
+    text-align: center
+    .social-menu
+      padding: 0
+      list-style-type: none
+      li
+        display: inline-block
+        margin: 0 10px
+        a
+          color: $secondary-color
+          .fa
+            +transition(.3s ease-in-out)
+          &:hover
+            .fa
+              +scale(1.2, 1.2)
+/* SIMPLE PHOTO */
+#app
+  overflow: hidden
+  background: $secondary-bg
+  .container
+    background: url(../images/hand.png) right bottom no-repeat
+  .content
+    @extend %content
+/* DESIGN */
+#design
+  overflow: hidden
+  .container
+    background-image: url(../images/iphone1.png)
+    background-position: left bottom
+    background-repeat: no-repeat
+    display: flex
+    flex-direction: row-reverse
+    position: relative
+    +transition(background 0.5s)
+    h2
+      position: absolute
+      width: 100%
+      max-width: 600px
+      padding: 0 30px
+  .content
+    @extend %content
+    .content-element
+      display: none
+      &.active
+        display: block
+      p
+        height: 120px
+        overflow: hidden
+  .slide-control
+    margin-top: 30px
+    #counter
+      font-weight: bold
+      font-size: 14px
+      +transition(0.3s)
+    .controls
+      a
+        color: $text-color
+        font-weight: bold
+        margin-left: 20px
+        +transition(.3s ease-in-out)
+        &:first-of-type
+          margin-left: 0
+        &:hover
+          color: $heading-color
+/* COMMUNITY */
+.community
+  background: $secondary-bg
+  .community-control
+    a
+      color: $text-color
+      font-weight: bold
+      margin-left: 20px
+      +transition(.3s ease-in-out)
+      &:first-of-type
+        margin-left: 0
+      &:hover
+        color: $heading-color
+  .community-content
+    display: flex
+    align-items: center
+    .our-community
+      margin-right: 20px
+      h3
+        margin: 30px 0
+    .community-images
+      display: flex
+      [class*="image-"]
+        background-position: center
+        background-size: cover
+        height: 240px
+        overflow: hidden
+      .image-1
+        background-image: url(../images/car.jpg)
+      .image-2
+        margin-left: 20px
+        background-image: url(../images/nature.png)
+/* SUBSCRIBE */
+.subscribe
+  background: url(../images/subscribe-bg.jpg) center
+  background-size: cover
+  .container
+    height: 100vh
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    h2
+      color: $secondary-color
+      margin-bottom: 30px
+    .jm-group
+      input
+        text-transform: uppercase
+        font-weight: bold
+      .input-group-addon
+        color: $secondary-color
+        background: $button-bg
+        +transition(.3s ease-in-out)
+        &:hover
+          background: $button-bg-light
+      input,
+      .input-group-addon
+        border: none
+/* DOWNLOAD */
+#download
+  background: $secondary-bg
+  .container
+    display: flex
+    justify-content: center
+    flex-direction: column
+    p
+      text-transform: uppercase
+      font-weight: 500
+      letter-spacing: 3px
+    .jm-btn-group
+      padding-top: 30px
+      button
+        background: $button-bg-light
+        padding: 0
+        padding-left: 20px
+        text-align: left
+        text-transform: uppercase
+        color: $secondary-color
+        font-weight: bold
+        letter-spacing: 2px
+        width: 200px
+        line-height: 42px
+        +transition(.4s ease-in-out)
+        position: relative
+        &:hover
+          +scale(1.15, 1.15)
+        &:last-of-type
+          margin-left: 20px
+        .fa
+          position: absolute
+          top: 0
+          right: 0
+          font-size: 22px
+          color: $secondary-color
+          background: $button-bg
+          line-height: 42px
+          width: 48px
+/* FOOTER */
+footer
+  .container
+    padding: 50px 15px
+    display: flex
+    align-items: center
+  .footer-menu
+    margin: 0
+    padding: 0
+    list-style-type: none
+    li
+      display: inline-block
+      padding: 0 10px 0 12px
+      border-left: 2px solid $button-bg
+      &:first-of-type
+        padding-left: 0
+        border-left: 0
+      a
+        text-transform: uppercase
+        letter-spacing: 2px
+        font-weight: bold
+        color: $text-color
+        +transition(.3s ease-in-out)
+        &:hover
+          text-decoration: none
+          color: $heading-color
+  .rights
+    margin-top: 20px
+    font-weight: bold
+    letter-spacing: 2px
+
+/* RWD */
+
+// PCs
+//media (max-width: 1199px)
+
+// Tablets
+@media (max-width: 991px)
+  #header .jm-jumbotron
+    .jm-navbar
+      .jm-brand-override
+        display: block
+        position: absolute
+        left: 50%
+        +translate(-50%, 0)
+      .navbar-nav
+        padding-top: 80px
+        li
+          width: 20%
+      .jm-brand
+        display: none
+  #app
+    .content
+      max-width: 100%
+      background: rgba(245,246,247,0.7)
+  #design
+    .container
+      background-position: center bottom
+      h2
+        max-width: 100%
+        padding: 0 60px
+    .content
+      max-width: 100%
+      background: rgba(255,255,255,0.7)
+  .community
+    .community-content
+      flex-direction: column
+      .community-images
+        margin-top: 30px
+        width: 100%
+
+// Phones
+@media (max-width: 767px)
+  #header .jm-jumbotron
+    .jm-navbar
+      .jm-brand-override
+        left: 5%
+        img
+          width: auto
+          height: 30px
+      .navbar-nav
+        padding-top: 0
+        li
+          width: 45%
+          display: inline-block
+          a
+            line-height: 26px
+          &.jm-brand
+            display: none
+  .community
+    .community-content
+      .community-images
+        flex-direction: column
+        .image-2
+          margin-left: 0
+          margin-top: 15px
+  footer
+    .container
+      flex-direction: column
+      .footer-menu
+        text-align: center
+      .logo
+        margin-top: 30px
+
+// Extra small devices
+@media (max-width: 479px)
+  #download .container
+    .jm-btn-group
+      button
+        display: block
+        margin: 10px auto
+        &:last-of-type
+          margin: 10px auto
+  footer
+    .container
+      .footer-menu
+        li
+          display: block
+          margin: 10px 0
+          padding: 0
+          border: none
