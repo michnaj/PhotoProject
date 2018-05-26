@@ -7,7 +7,10 @@ $(function() {
   let designs,
       designList = $('#design .content'),
       designContainer = $('#design .container'),
-      numDesignContent = designList.find('.content-element').length;
+      numDesignContent = designList.find('.content-element').length, // number of slides
+      community,
+      communityList = $('#community .community-images'),
+      numCommunity = communityList.find('.images').length; // number of slides
 
   // Menu - smooth scrolling
   $('#main-menu .nav a.menu-pos').click(function(event) {
@@ -28,17 +31,29 @@ $(function() {
    * Design slider - begin
   */
 
+  // Sliders control
   function startSlider(slider) {
-    if (slider === 'design') {
+    if (slider === 'design' || slider === 'both') {
       designs = setInterval(changeDesignSlide, intervalTime);
     }
+    if (slider === 'community' || slider === 'both') {
+      community = setInterval(changeCommunitySlide, intervalTime);
+    }
+    return;
   }
 
   function stopSlider(slider) {
     if (slider === 'design') {
       clearInterval(designs);
+    } else if (slider === 'community') {
+      clearInterval(community);
     }
+    return;
   }
+
+  /**
+   * Design slider - begin
+  */
 
   //Getting index of client element
   function getIndexDesign(elem) {
@@ -116,10 +131,64 @@ $(function() {
    * Community slider - begin
   */
 
+  //Getting index of images
+  function getIndexCommunity(elem) {
+    if (elem === 'active') {
+      return communityList.find('.images.active').index();
+    } else if (elem === 'prev') {
+      let activeElem = getIndexCommunity('active');
+      if (activeElem === 0) {
+        return numCommunity - 1;
+      } else {
+        return activeElem - 1;
+      }
+    } else {
+      let activeElem = getIndexCommunity('active');
+      if (activeElem === (numCommunity - 1)) {
+        return 0;
+      } else {
+        return activeElem + 1;
+      }
+    }
+  }
+  function setActiveCommunityElem(active, next) {
+    communityList.find('.images').eq(active).fadeOut(animationDuration, () => {
+      communityList.find('.images').eq(active).removeClass('active');
+      communityList.find('.images').eq(next).addClass('active').hide();
+      communityList.find('.images').eq(next).fadeIn(animationDuration);
+    });
+  }
+
+  //Change Community slide
+  function changeCommunitySlide(elem) {
+    let activeElem = getIndexCommunity('active'),
+        nextElem;
+    if (elem || elem === 0) { nextElem = elem; }
+    else { nextElem = getIndexCommunity(); }
+    setActiveCommunityElem(activeElem, nextElem);
+  }
+
+  // Community controls listener - prev
+  $('#community-prev').on('click', function(event) {
+    event.preventDefault();
+    let nextElem = getIndexCommunity('prev');
+    stopSlider('community');
+    changeCommunitySlide(nextElem);
+    startSlider('community');
+  });
+  // Community controls listener - next
+  $('#community-next').on('click', function(event) {
+    event.preventDefault();
+    let nextElem = getIndexCommunity();
+    stopSlider('community');
+    changeCommunitySlide(nextElem);
+    startSlider('community');
+  });
+
   /**
    * Community slider - end
   */
 
   updateCounter(0); // Set starting value of design slider counter
-  startSlider('design');
+  startSlider('both');
 });

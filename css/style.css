@@ -205,38 +205,55 @@ p {
         color: #16a085; }
 
 /* COMMUNITY */
-.community {
+#community {
   background: #f5f6f7; }
-  .community .community-control a {
+  #community .community-control a {
     color: #373737;
     font-weight: bold;
     margin-left: 20px;
     -webkit-transition: 0.3s ease-in-out;
     -moz-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out; }
-    .community .community-control a:first-of-type {
+    #community .community-control a:first-of-type {
       margin-left: 0; }
-    .community .community-control a:hover {
+    #community .community-control a:hover {
       color: #16a085; }
-  .community .community-content {
+  #community .community-content {
     display: flex;
     align-items: center; }
-    .community .community-content .our-community {
+    #community .community-content .our-community {
       margin-right: 20px; }
-      .community .community-content .our-community h3 {
+      #community .community-content .our-community h3 {
         margin: 30px 0; }
-    .community .community-content .community-images {
+    #community .community-content .community-images {
       display: flex; }
-      .community .community-content .community-images [class*="image-"] {
+      #community .community-content .community-images .images {
+        display: none; }
+        #community .community-content .community-images .images.active {
+          display: flex; }
+      #community .community-content .community-images [class*="image-"] {
         background-position: center;
         background-size: cover;
         height: 240px;
         overflow: hidden; }
-      .community .community-content .community-images .image-1 {
+        #community .community-content .community-images [class*="image-"]:nth-of-type(2) {
+          margin-left: 20px; }
+      #community .community-content .community-images .image-1 {
         background-image: url(../images/car.jpg); }
-      .community .community-content .community-images .image-2 {
-        margin-left: 20px;
+      #community .community-content .community-images .image-2 {
         background-image: url(../images/nature.png); }
+      #community .community-content .community-images .image-3 {
+        background-image: url(../images/nature2.jpg); }
+      #community .community-content .community-images .image-4 {
+        background-image: url(../images/nature3.jpg); }
+      #community .community-content .community-images .image-5 {
+        background-image: url(../images/nature4.jpg); }
+      #community .community-content .community-images .image-6 {
+        background-image: url(../images/nature5.jpg); }
+      #community .community-content .community-images .image-7 {
+        background-image: url(../images/nature6.jpg); }
+      #community .community-content .community-images .image-8 {
+        background-image: url(../images/nature7.jpg); }
 
 /* SUBSCRIBE */
 .subscribe {
@@ -370,9 +387,9 @@ footer .rights {
   #design .content {
     max-width: 100%;
     background: rgba(255, 255, 255, 0.7); }
-  .community .community-content {
+  #community .community-content {
     flex-direction: column; }
-    .community .community-content .community-images {
+    #community .community-content .community-images {
       margin-top: 30px;
       width: 100%; } }
 
@@ -391,11 +408,11 @@ footer .rights {
         line-height: 26px; }
       #header .jm-jumbotron .jm-navbar .navbar-nav li.jm-brand {
         display: none; }
-  .community .community-content .community-images {
+  #community .community-content .community-images .images {
     flex-direction: column; }
-    .community .community-content .community-images .image-2 {
-      margin-left: 0;
-      margin-top: 15px; }
+  #community .community-content .community-images [class*="image-"]:nth-of-type(2) {
+    margin-left: 0;
+    margin-top: 15px; }
   footer .container {
     flex-direction: column; }
     footer .container .footer-menu {

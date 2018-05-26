@@ -212,7 +212,7 @@ p
         &:hover
           color: $heading-color
 /* COMMUNITY */
-.community
+#community
   background: $secondary-bg
   .community-control
     a
@@ -233,16 +233,33 @@ p
         margin: 30px 0
     .community-images
       display: flex
+      .images
+        display: none
+        &.active
+          display: flex
       [class*="image-"]
         background-position: center
         background-size: cover
         height: 240px
         overflow: hidden
+        &:nth-of-type(2)
+          margin-left: 20px
       .image-1
         background-image: url(../images/car.jpg)
       .image-2
-        margin-left: 20px
         background-image: url(../images/nature.png)
+      .image-3
+        background-image: url(../images/nature2.jpg)
+      .image-4
+        background-image: url(../images/nature3.jpg)
+      .image-5
+        background-image: url(../images/nature4.jpg)
+      .image-6
+        background-image: url(../images/nature5.jpg)
+      .image-7
+        background-image: url(../images/nature6.jpg)
+      .image-8
+        background-image: url(../images/nature7.jpg)
 /* SUBSCRIBE */
 .subscribe
   background: url(../images/subscribe-bg.jpg) center
@@ -340,10 +357,6 @@ footer
     letter-spacing: 2px
 
 /* RWD */
-
-// PCs
-//media (max-width: 1199px)
-
 // Tablets
 @media (max-width: 991px)
   #header .jm-jumbotron
@@ -372,7 +385,7 @@ footer
     .content
       max-width: 100%
       background: rgba(255,255,255,0.7)
-  .community
+  #community
     .community-content
       flex-direction: column
       .community-images
@@ -397,13 +410,15 @@ footer
             line-height: 26px
           &.jm-brand
             display: none
-  .community
+  #community
     .community-content
       .community-images
-        flex-direction: column
-        .image-2
-          margin-left: 0
-          margin-top: 15px
+        .images
+          flex-direction: column
+        [class*="image-"]
+          &:nth-of-type(2)
+            margin-left: 0
+            margin-top: 15px
   footer
     .container
       flex-direction: column
