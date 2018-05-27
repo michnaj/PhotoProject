@@ -1,8 +1,6 @@
 # PhotoProject
 ## Coding based on the .psd file</h2>
 
-**Beta version**
-
 **Used**: Boostrap, Sass, FontAwesome, jQuery, Flexbox.
 
 **Working with**: Visual Studio Code, Grunt, Eslint.
