@@ -5,7 +5,7 @@
 
 **Working with**: Visual Studio Code, Grunt, Eslint.
 
-**Live view**: [https://michnaj.github.io/PhotoProject/](https://michnaj.github.io/PhotoProject/)
+**Live view**: https://michnaj.github.io/PhotoProject/
 
 **Source file**:
 
