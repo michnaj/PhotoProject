@@ -27,6 +27,15 @@ $(function() {
 		$("html, body").animate({scrollTop: 0}, 1000);
   });
 
+  //Toggle special class menu while scrolling page
+  $(window).scroll(function() {
+		if ($(this).scrollTop() > 90) {
+			$("nav.navbar-fixed-top").addClass('sticky');
+		} else {
+			$("nav.navbar-fixed-top").removeClass('sticky');
+		}
+	});
+
   /**
    * Design slider - begin
   */

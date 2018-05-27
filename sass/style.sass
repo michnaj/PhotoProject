@@ -9,6 +9,7 @@ $heading-color: #16a085
 $button-bg: #16a085
 $button-bg-light: #1abc9c
 $button-color: #fff
+$fixedmenu-color: #202020
 
 // FONT variables
 $basic-font: 'Oxygen', sans-serif
@@ -33,6 +34,10 @@ $base-font-size: 16px
   -ms-transform:      translate($posX, $posY)
   -webkit-transform:  translate($posX, $posY)
   transform:          translate($posX, $posY)
+=transformOrigin($posX, $posY)
+  -ms-transform-origin:      $posX $posY
+  -webkit-transform-origin:  $posX $posY
+  transform-origin:          $posX $posY
 =scale($x, $y)
   -ms-transform:      scale($x, $y)
   -webkit-transform:  scale($x, $y)
@@ -51,6 +56,7 @@ body
   color: $text-color
   background: $bg-color
   font-size: $base-font-size
+  position: relative
 section
   &>.container
     padding-top: 100px
@@ -97,7 +103,7 @@ p
 /* HEADING */
 #header
   height: 100vh
-  padding: 0
+  padding: 90px 0 0 0
   background: url(../images/heading-bg.jpg) center
   background-size: cover
   color: $secondary-color
@@ -114,6 +120,9 @@ p
     border: none
     margin: 0
     height: 90px
+    width: 100%
+    max-width: 1170px
+    margin: 0 auto
 
     .nav
       width: 100%
@@ -130,13 +139,34 @@ p
             background-color: rgba(255, 255, 255, 0.2)
         &.active
           a
-            background: none
+            background-color: rgba(200, 200, 200, 0.2)
             &:hover
-              background-color: rgba(255, 255, 255, 0.2)
+              background-color: rgba(200, 200, 200, 0.3)
               color: $secondary-color
         &.jm-brand
           a:hover
             background: transparent
+  .navbar-fixed-top
+    +transition(0.3s)
+    *
+      +transition(0.3s)
+    &.sticky
+      height: 55px
+      border: 1px solid lighten($fixedmenu-color, 10%)
+      border-top: none
+      background: rgba(red($fixedmenu-color), green($fixedmenu-color), blue($fixedmenu-color), 0.6)
+      border-radius: 0 0 10px 10px
+      .nav
+        li
+          a
+            line-height: 20px
+
+        img
+          position: relative
+          top: 0
+          +scale(0.6, 0.6)
+          +transformOrigin(50%, -10px)
+
   .introduce
     height: calc(100vh - 140px)
     display: flex
@@ -277,6 +307,7 @@ p
       input
         text-transform: uppercase
         font-weight: bold
+        padding: 20px
       .input-group-addon
         color: $secondary-color
         background: $button-bg
@@ -372,6 +403,15 @@ footer
           width: 20%
       .jm-brand
         display: none
+    .navbar-fixed-top
+      border-radius: 0
+      border-left: none
+      border-right: none
+      &.sticky
+        .jm-brand-override
+          display: none
+        .navbar-nav
+          padding-top: 0
   #app
     .content
       max-width: 100%
@@ -401,8 +441,12 @@ footer
         img
           width: auto
           height: 30px
+      .navbar-collapse
+        margin-top: 5px
+        border: none
       .navbar-nav
         padding-top: 0
+        margin: 5px auto
         li
           width: 45%
           display: inline-block
@@ -410,6 +454,16 @@ footer
             line-height: 26px
           &.jm-brand
             display: none
+    .navbar-fixed-top
+      border: none
+      &.sticky
+        .jm-brand-override
+          display: block
+        .navbar-header
+          borer: none
+        .navbar-collapse
+          border: none
+          background-color: rgba(red($fixedmenu-color), green($fixedmenu-color), blue($fixedmenu-color), 0.6)
   #community
     .community-content
       .community-images

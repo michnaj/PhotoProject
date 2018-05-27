@@ -21,7 +21,8 @@ body {
   font-family: "Oxygen", sans-serif;
   color: #373737;
   background: #fff;
-  font-size: 16px; }
+  font-size: 16px;
+  position: relative; }
 
 section > .container {
   padding-top: 100px;
@@ -86,7 +87,7 @@ p {
 /* HEADING */
 #header {
   height: 100vh;
-  padding: 0;
+  padding: 90px 0 0 0;
   background: url(../images/heading-bg.jpg) center;
   background-size: cover;
   color: #fff; }
@@ -102,7 +103,10 @@ p {
     background: none;
     border: none;
     margin: 0;
-    height: 90px; }
+    height: 90px;
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto; }
     #header .jm-navbar .nav {
       width: 100%; }
       #header .jm-navbar .nav li {
@@ -117,12 +121,37 @@ p {
           #header .jm-navbar .nav li a:hover {
             background-color: rgba(255, 255, 255, 0.2); }
         #header .jm-navbar .nav li.active a {
-          background: none; }
+          background-color: rgba(200, 200, 200, 0.2); }
           #header .jm-navbar .nav li.active a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(200, 200, 200, 0.3);
             color: #fff; }
         #header .jm-navbar .nav li.jm-brand a:hover {
           background: transparent; }
+  #header .navbar-fixed-top {
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    transition: 0.3s; }
+    #header .navbar-fixed-top * {
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      transition: 0.3s; }
+    #header .navbar-fixed-top.sticky {
+      height: 55px;
+      border: 1px solid #3a3939;
+      border-top: none;
+      background: rgba(32, 32, 32, 0.6);
+      border-radius: 0 0 10px 10px; }
+      #header .navbar-fixed-top.sticky .nav li a {
+        line-height: 20px; }
+      #header .navbar-fixed-top.sticky .nav img {
+        position: relative;
+        top: 0;
+        -ms-transform: scale(0.6, 0.6);
+        -webkit-transform: scale(0.6, 0.6);
+        transform: scale(0.6, 0.6);
+        -ms-transform-origin: 50% -10px;
+        -webkit-transform-origin: 50% -10px;
+        transform-origin: 50% -10px; }
   #header .introduce {
     height: calc(100vh - 140px);
     display: flex;
@@ -270,7 +299,8 @@ p {
       margin-bottom: 30px; }
     .subscribe .container .jm-group input {
       text-transform: uppercase;
-      font-weight: bold; }
+      font-weight: bold;
+      padding: 20px; }
     .subscribe .container .jm-group .input-group-addon {
       color: #fff;
       background: #16a085;
@@ -376,6 +406,14 @@ footer .rights {
       width: 20%; }
   #header .jm-jumbotron .jm-navbar .jm-brand {
     display: none; }
+  #header .jm-jumbotron .navbar-fixed-top {
+    border-radius: 0;
+    border-left: none;
+    border-right: none; }
+    #header .jm-jumbotron .navbar-fixed-top.sticky .jm-brand-override {
+      display: none; }
+    #header .jm-jumbotron .navbar-fixed-top.sticky .navbar-nav {
+      padding-top: 0; }
   #app .content {
     max-width: 100%;
     background: rgba(245, 246, 247, 0.7); }
@@ -399,8 +437,12 @@ footer .rights {
     #header .jm-jumbotron .jm-navbar .jm-brand-override img {
       width: auto;
       height: 30px; }
+  #header .jm-jumbotron .jm-navbar .navbar-collapse {
+    margin-top: 5px;
+    border: none; }
   #header .jm-jumbotron .jm-navbar .navbar-nav {
-    padding-top: 0; }
+    padding-top: 0;
+    margin: 5px auto; }
     #header .jm-jumbotron .jm-navbar .navbar-nav li {
       width: 45%;
       display: inline-block; }
@@ -408,6 +450,15 @@ footer .rights {
         line-height: 26px; }
       #header .jm-jumbotron .jm-navbar .navbar-nav li.jm-brand {
         display: none; }
+  #header .jm-jumbotron .navbar-fixed-top {
+    border: none; }
+    #header .jm-jumbotron .navbar-fixed-top.sticky .jm-brand-override {
+      display: block; }
+    #header .jm-jumbotron .navbar-fixed-top.sticky .navbar-header {
+      borer: none; }
+    #header .jm-jumbotron .navbar-fixed-top.sticky .navbar-collapse {
+      border: none;
+      background-color: rgba(32, 32, 32, 0.6); }
   #community .community-content .community-images .images {
     flex-direction: column; }
   #community .community-content .community-images [class*="image-"]:nth-of-type(2) {
